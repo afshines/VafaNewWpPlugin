@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Vafa Chat Widget 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vafa-chat-widget\n"
+"POT-Creation-Date: 2025-05-22T10:30:00+02:00\n"
+"PO-Revision-Date: 2025-05-22T10:30:00+02:00\n"
+"Last-Translator: Vafa AI\n"
+"Language-Team: Persian\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Vafa Plugin Translator\n"
+"X-Domain: vafa-chat-widget\n"
+
+#: includes/admin-settings.php:15
+msgid "Vafa Chat Widget Settings"
+msgstr "تنظیمات ویجت گفتگوی وفا"
+
+#: includes/admin-settings.php:16
+msgid "Vafa Chat Widget"
+msgstr "ویجت گفتگوی وفا"
+
+#: includes/admin-settings.php:70
+msgid "Enable Widget"
+msgstr "فعال‌سازی ویجت"
+
+#: includes/admin-settings.php:73
+msgid "Enable or disable the chat widget on your site"
+msgstr "فعال یا غیرفعال کردن ویجت گفتگو در سایت شما"
+
+#: includes/admin-settings.php:78
+msgid "Assistant Token"
+msgstr "توکن دستیار"
+
+#: includes/admin-settings.php:81
+msgid "Enter your Vafa Assistant token (required)"
+msgstr "توکن دستیار وفا را وارد کنید (الزامی)"
+
+#: includes/admin-settings.php:86
+msgid "Assistant ID"
+msgstr "شناسه دستیار"
+
+#: includes/admin-settings.php:89
+msgid "If different from token, enter your Assistant ID (optional)"
+msgstr "اگر با توکن متفاوت است، شناسه دستیار خود را وارد کنید (اختیاری)"
+
+#: includes/admin-settings.php:94
+msgid "Welcome Title"
+msgstr "عنوان خوش‌آمدگویی"
+
+#: includes/admin-settings.php:100
+msgid "Initial Message"
+msgstr "پیام اولیه"
+
+#: includes/admin-settings.php:106
+msgid "Default Question"
+msgstr "سوال پیش‌فرض"
+
+#: includes/admin-settings.php:112
+msgid "Suggested Questions"
+msgstr "سوالات پیشنهادی"
+
+#: includes/admin-settings.php:115
+msgid "Enter suggested questions, one per line"
+msgstr "سوالات پیشنهادی را وارد کنید، هر سوال در یک خط"
+
+#: includes/admin-settings.php:120
+msgid "API Base URL"
+msgstr "آدرس پایه API"
+
+#: includes/admin-settings.php:126
+msgid "Include User Data"
+msgstr "شامل اطلاعات کاربر"
+
+#: includes/admin-settings.php:129
+msgid "Include WordPress user data in chat widget when user is logged in"
+msgstr "وقتی کاربر وارد سایت شده، اطلاعات کاربری وردپرس را در ویجت گفتگو قرار بده"
+
+#: includes/admin-settings.php:134
+msgid "How to Use"
+msgstr "نحوه استفاده"
+
+#: includes/admin-settings.php:135
+msgid "Use shortcode [vafa_chat_widget] to embed the chat widget in your posts or pages."
+msgstr "از کد کوتاه [vafa_chat_widget] برای قرار دادن ویجت گفتگو در نوشته‌ها یا صفحات خود استفاده کنید."
+
+#: includes/admin-settings.php:149
+msgid "Settings"
+msgstr "تنظیمات"
