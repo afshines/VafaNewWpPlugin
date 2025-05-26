@@ -43,9 +43,15 @@ function vafa_chat_sanitize_settings($input) {
     $sanitized['token'] = sanitize_text_field($input['token']);
     $sanitized['welcome_title'] = sanitize_text_field($input['welcome_title']);
     $sanitized['initial_message'] = sanitize_text_field($input['initial_message']);
-    $sanitized['default_question'] = sanitize_text_field($input['default_question']);
+    $sanitized['default_question'] = wp_kses_post($input['default_question']);
     $sanitized['suggested_questions'] = sanitize_textarea_field($input['suggested_questions']);
-    $sanitized['api_base_url'] = sanitize_url($input['api_base_url']);
+    
+    // API Configuration
+    $sanitized['api_base_url'] = esc_url_raw($input['api_base_url']);
+    $sanitized['api_timeout'] = absint($input['api_timeout']);
+    $sanitized['api_retry_attempts'] = absint($input['api_retry_attempts']);
+    
+    // Widget settings
     $sanitized['enable_widget'] = isset($input['enable_widget']) ? 'yes' : 'no';
     $sanitized['include_user_data'] = isset($input['include_user_data']) ? 'yes' : 'no';
     
@@ -81,8 +87,9 @@ function vafa_chat_settings_page() {
                         <p class="description"><?php echo esc_html__('Enter your Vafa Assistant token (required)', 'vafa-chat-widget'); ?></p>
                     </td>
                 </tr>
-                
 
+
+                
                 
                 <tr valign="top">
                     <th scope="row"><?php echo esc_html__('Welcome Title', 'vafa-chat-widget'); ?></th>
@@ -120,6 +127,39 @@ function vafa_chat_settings_page() {
                     <td>
                         <input type="checkbox" name="vafa_chat_settings[include_user_data]" value="yes" <?php checked('yes', isset($settings['include_user_data']) ? $settings['include_user_data'] : 'yes'); ?> />
                         <p class="description"><?php echo esc_html__('Include WordPress user data in chat widget when user is logged in', 'vafa-chat-widget'); ?></p>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th colspan="2">
+                        <h3><?php echo esc_html__('API Configuration', 'vafa-chat-widget'); ?></h3>
+                        <hr>
+                    </th>
+                </tr>
+                
+                <tr valign="top">
+                    <th scope="row"><?php echo esc_html__('API Base URL', 'vafa-chat-widget'); ?></th>
+                    <td>
+                        <input type="url" name="vafa_chat_settings[api_base_url]" value="<?php echo esc_url(isset($settings['api_base_url']) ? $settings['api_base_url'] : 'https://api.vafaai.com'); ?>" class="regular-text" required />
+                        <p class="description"><?php echo esc_html__('The base URL for the Vafa API (e.g., https://api.vafaai.com)', 'vafa-chat-widget'); ?></p>
+                    </td>
+                </tr>
+                
+
+                
+                <tr valign="top">
+                    <th scope="row"><?php echo esc_html__('Request Timeout', 'vafa-chat-widget'); ?></th>
+                    <td>
+                        <input type="number" name="vafa_chat_settings[api_timeout]" value="<?php echo esc_attr(isset($settings['api_timeout']) ? $settings['api_timeout'] : '30'); ?>" class="small-text" min="5" max="120" />
+                        <p class="description"><?php echo esc_html__('API request timeout in seconds (5-120)', 'vafa-chat-widget'); ?></p>
+                    </td>
+                </tr>
+                
+                <tr valign="top">
+                    <th scope="row"><?php echo esc_html__('Retry Attempts', 'vafa-chat-widget'); ?></th>
+                    <td>
+                        <input type="number" name="vafa_chat_settings[api_retry_attempts]" value="<?php echo esc_attr(isset($settings['api_retry_attempts']) ? $settings['api_retry_attempts'] : '3'); ?>" class="small-text" min="0" max="5" />
+                        <p class="description"><?php echo esc_html__('Number of retry attempts for failed API requests (0-5)', 'vafa-chat-widget'); ?></p>
                     </td>
                 </tr>
             </table>

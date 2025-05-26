@@ -46,13 +46,19 @@ add_action('plugins_loaded', 'vafa_chat_init');
 function vafa_chat_activate() {
     // Initialize default settings
     $default_settings = array(
+        // Basic settings
         'token' => '',
-        'assistant_id' => '',
         'welcome_title' => 'به سایت ما خوش آمدید',
         'initial_message' => 'سلام چطور میتونم کمکتون کنم؟',
         'default_question' => 'کمک میخوام',
         'suggested_questions' => "در هاسکووب چیکار میکنید?\nمشاوره حرفه ای میخوام.\nراه اندازی و بهبود کسب و کارها در فضای آنلاین",
+        
+        // API Configuration
         'api_base_url' => 'https://api.vafaai.com',
+        'api_timeout' => 30,
+        'api_retry_attempts' => 3,
+        
+        // Widget settings
         'enable_widget' => 'yes',
         'include_user_data' => 'yes'
     );
